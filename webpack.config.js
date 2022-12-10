@@ -3,7 +3,8 @@
 // FIRST, 
 // DECLARE THE IMPORT WITH "REQUIRE" FOR ANY NODE MODULE, LOADER OR PLUGIN USED IN YOUR PROJECT.
 const path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin')
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // SECOND, 
 // DEFINE YOUR EXPORTED MODULE TO YOUR PRODUCT. ESENTIALS: <entry>, <point>, <output>, <resolve> and finally <module>.
@@ -38,6 +39,13 @@ module.exports = {
             inject: true,
             template: './public/index.html',
             filename: './index.html',
+            }
+        ),
+        new CopyWebpackPlugin(
+            {
+                patterns: [{ 
+                    from: './src/styles/styles.css',
+                    to: ''}],
             }
         ),
     ]
